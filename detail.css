@@ -1,0 +1,42 @@
+/* detail.css - Trang chi tiết sản phẩm */
+.product-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia đôi trên máy tính */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 15px;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+.product-info h2 {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.price-tag {
+    font-size: 1.8rem;
+    color: #ff4d4d;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 850px) {
+    .product-detail-container {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+        margin: 10px;
+    }
+    
+    .product-info {
+        text-align: center;
+    }
+}

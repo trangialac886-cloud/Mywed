@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản lý sản phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <header>
+        <h1>QUẢN TRỊ VIÊN</h1>
+        <p>Hệ thống quản lý kho Nhím Billiards</p>
+       
+    </header>
+
+    <div class="admin-container">
+        <button class="btn-add" onclick="openModal()" >+ Thêm Sản Phẩm Mới</button>
+        <div class="admin-toolbar">
+    <div class="search-wrapper">
+        <input type="text" id="admin-search" placeholder="Tìm tên hoặc ID sản phẩm...">
+    </div>
+    
+    <div class="filter-wrapper">
+        <label for="admin-sort">Sắp xếp:</label>
+        <select id="admin-sort">
+            <option value="none">Mặc định</option>
+            <option value="price-asc">Giá: Thấp đến Cao</option>
+            <option value="price-desc">Giá: Cao đến Thấp</option>
+            <option value="stock-asc">Tồn kho: Ít đến Nhiều</option>
+            <option value="name-az">Tên: A -> Z</option>
+        </select>
+    </div>
+</div>
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th>ID</th>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Danh mục</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="admin-product-list">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle" style="color: #d4af37;">Thêm Sản Phẩm</h2>
+            <form id="productForm">
+                <input type="hidden" id="prodId">
+                <input type="text" id="prodName" placeholder="Tên sản phẩm" required>
+                <input type="number" id="prodPrice" placeholder="Giá tiền (VNĐ)" required>
+                <input type="text" id="prodImage" placeholder="Đường dẫn ảnh (img/name.jpg)" required>
+                <input type="number" id="prodStock" placeholder="Số lượng tồn kho" required>
+                <select id="prodCategory">
+                    <option value="Libre">Libre</option>
+                    <option value="3-Cushion">3-Cushion</option>
+                    <option value="Pool">Pool</option>
+                </select>
+                <textarea id="prodDesc" placeholder="Mô tả sản phẩm" rows="4"></textarea>
+                <button type="submit" class="btn-add">Lưu Thay Đổi</button>
+                <button type="button" class="btn-delete" onclick="closeModal()">Hủy</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+ <div">
+        <a href="index.html" class="btn-back-home">← Quay về Trang Chủ</a>
+    </div>
+
+
+<script>
+    function logoutAdmin() {
+        sessionStorage.removeItem('isAdmin');
+        window.location.href = 'index.html';
+    }
+</script>
+</html>

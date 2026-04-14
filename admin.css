@@ -1,0 +1,288 @@
+/* admin.css - Styles dành riêng cho trang quản trị */
+
+.admin-container {
+    max-width: 1200px;
+   margin: 40px auto;
+    padding: 15px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Nút quay lại trang chủ */
+.btn-back-home {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    color: #d4af37; /* Màu vàng Gold */
+    padding: 8px 16px;
+    border: 1px solid #d4af37;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    justify-content: start
+}
+
+.btn-back-home:hover {
+    background-color: #d4af37;
+    color: #000; /* Chữ đen trên nền vàng khi hover */
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: #e0e0e0;
+    background-color: #1a1a1a;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #d4af37;
+    color: #000;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+tr:hover {
+    background-color: #252525;
+}
+
+/* Admin Buttons */
+.btn-add {
+    background: #d4af37;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background: #2ecc71;
+    transform: translateY(-2px);
+}
+
+.btn-edit {
+    background: #2980b9;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn-delete {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+    opacity: 0.8;
+}
+
+/* Modal Form Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1e1e1e;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    position: relative;
+}
+
+#productForm input, 
+#productForm select, 
+#productForm textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+}
+
+#productForm input:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+/* Giúp bảng không bị co rắm */
+table {
+    table-layout: fixed; /* Giữ cố định độ rộng cột đã chia ở TH */
+    word-wrap: break-word;
+}
+
+/* Tag danh mục cho đẹp */
+.category-tag {
+    background: #444;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #fff;
+}
+
+/* Căn giữa các cột số liệu */
+td {
+    vertical-align: middle;
+}
+
+td:nth-child(1), 
+td:nth-child(2), 
+td:nth-child(5), 
+td:nth-child(6) {
+    text-align: center;
+}
+
+/* Toolbar chứa tìm kiếm và sắp xếp */
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    background: #252525;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #d4af37; /* Viền vàng đặc trưng */
+}
+
+/* Khung tìm kiếm */
+.search-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.search-wrapper input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.search-wrapper input:focus {
+    border-color: #d4af37;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+/* Bộ lọc sắp xếp */
+.filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-wrapper label {
+    color: #d4af37;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.filter-wrapper select {
+    padding: 10px;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.filter-wrapper select:focus {
+    border-color: #d4af37;
+}
+
+.admin-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Căn giữa thanh tìm kiếm và bộ lọc */
+    align-items: center; /* Cho phép rớt dòng trên mobile */
+    gap: 15px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid var(--gold);
+    margin-bottom: 25px;
+}
+
+.search-wrapper { flex: 2; min-width: 250px; }
+.filter-wrapper { flex: 1; min-width: 150px; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block; 
+        
+    }
+    
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    tr {
+        background: var(--card-bg);
+        margin-bottom: 15px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    
+    td {
+        border: none;
+        position: relative;
+       
+        text-align: center;
+    }
+    
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: var(--gold);
+    }
+}

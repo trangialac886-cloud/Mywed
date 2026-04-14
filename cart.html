@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng - Nhím Billiards</title>
+    <link rel="stylesheet" href="cart.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>GIỎ HÀNG CỦA BẠN</h1>
+        <a href="index.html" style="color: #d4af37; text-decoration: none;">← Tiếp tục mua sắm</a>
+    </header>
+
+    <div class="cart-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+            </tbody>
+        </table>
+
+        <div class="total-price">
+            Tổng cộng: <span id="grand-total">0</span> đ
+        </div>
+
+        <div style="text-align: right; margin-top: 20px;">
+            <button  onclick="openCheckout()"
+                style="padding: 15px 30px; background: #d4af37; border: none; font-weight: bold; cursor: pointer;">THANH
+                TOÁN NGAY</button>
+        </div>
+    </div>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeCheckout()">&times;</span>
+            <h2>Thông Tin Thanh Toán</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Họ và tên:</label>
+                    <input type="text" id="customer-name" required placeholder="Nhập họ tên của bạn">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input type="tel" id="customer-phone" required placeholder="Nhập số điện thoại">
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ nhận hàng:</label>
+                    <textarea id="customer-address" required placeholder="Số nhà, tên đường, phường/xã..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Phương thức thanh toán:</label>
+                    <select id="payment-method">
+                        <option value="cod">Thanh toán khi nhận hàng (COD)</option>
+                        <option value="bank">Chuyển khoản ngân hàng</option>
+                        <option value="momo">Ví điện tử Momo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-confirm">Xác Nhận Đặt Hàng</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+  
+</body>
+
+</html>

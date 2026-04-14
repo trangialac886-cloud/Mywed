@@ -1,0 +1,238 @@
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0; /* Chữ màu xám sáng */
+    background-color: #121212;
+    flex-direction: column;
+    align-items: center; 
+}
+
+/* cart.css - Giao diện hiện đại cho Nhím Billiards */
+:root {
+    --gold: #d4af37;
+    --dark-bg: #121212;
+    --card-bg: #1a1a1a;
+    --text-color: #e0e0e0;
+}
+
+
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: #000;
+    border-bottom: 2px solid var(--gold);
+}
+
+.cart-container {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: fixed; /* Giúp các cột không bị co giãn lung tung */
+}
+
+th {
+    border-bottom: 2px solid var(--gold);
+    padding: 15px;
+    text-align: left;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+td {
+    padding: 20px 15px;
+    border-bottom: 1px solid #333;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Ảnh sản phẩm trong giỏ */
+.cart-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Nút tăng giảm số lượng */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+.qty-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.qty-btn:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* Nút xóa */
+.btn-delete {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #e74c3c;
+    transform: scale(1.1);
+}
+
+.total-price {
+    margin-top: 30px;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--gold);
+    text-align: center;
+}
+
+.checkout-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--gold);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.checkout-btn:hover {
+    background: #f1c40f;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+/* Style cho Modal Thanh Toán */
+/* Thêm đoạn này vào cuối file cart.css */
+
+/* Ẩn modal mặc định */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* Nền tối phía sau */
+    overflow-y: auto; /* Cho phép cuộn nếu màn hình nhỏ */
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #d4af37;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 15px;
+    color: white;
+    position: relative;
+}
+
+/* Các tùy chỉnh cho form bên trong modal */
+.form-group input, 
+.form-group textarea, 
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.btn-confirm {
+    margin-top: 20px;
+    transition: 0.3s;
+    background: var(--gold);
+    color: #000;
+}
+
+.btn-confirm:hover {
+    background: #fff;
+    color: #000;
+}
+
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    thead { display: none; } /* Ẩn tiêu đề bảng trên mobile */
+    
+    tr {
+        margin-bottom: 20px;
+        border: 1px solid var(--gold);
+        border-radius: 10px;
+        padding: 10px;
+    }
+    
+    td {
+        text-align: center; 
+        position: relative;
+        border-bottom: 1px solid #222;
+    }
+    
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        color: var(--gold);
+    }
+    
+    .cart-img { margin: 10px auto; }
+}
