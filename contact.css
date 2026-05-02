@@ -1,0 +1,71 @@
+.contact-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 3rem;
+}
+
+.contact-info {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #333;
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item h3 {
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+
+.contact-form-area {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #d4af37;
+}
+
+#contact-form input, 
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.map-area {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Nhím Billiards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css"> </head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <h1>NHÍMM BILLIARDS PRO SHOP</h1>
+                <p>Cung cấp cơ bi-a chính hãng hàng đầu</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="co.html">Các loại cơ</a></li>
+                <li><a href="PK.html">Phụ kiện</a></li>
+                <li><a href="contact.html" style="color: #fff;">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contact-container">
+        <h2 class="section-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3>📍 Địa chỉ</h3>
+                    <p>123 Đường ABC, Quận XYZ, TP.HCM</p>
+                </div>
+                <div class="info-item">
+                    <h3>📞 Số điện thoại</h3>
+                    <p>0938.541.130</p>
+                </div>
+                <div class="info-item">
+                    <h3>✉️ Email</h3>
+                    <p>trangialac886@gmail.com</p>
+                </div>
+                <div class="info-item">
+                    <h3>⏰ Giờ làm việc</h3>
+                    <p>8:00 - 22:00 (Thứ 2 - Chủ Nhật)</p>
+                </div>
+            </div>
+
+            <div class="contact-form-area">
+                <form id="contact-form">
+                    <input type="text" placeholder="Họ và tên" required>
+                    <input type="email" placeholder="Email liên lạc" required>
+                    <input type="tel" placeholder="Số điện thoại">
+                    <textarea placeholder="Nội dung cần tư vấn..." rows="5" required></textarea>
+                    <button type="submit" class="page-btn active">GỬI TIN NHẮN</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-area">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.630773293551!2d106.67998307465355!3d10.76291298938531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1c06f4ee73%3A0xcadc12e5bc1ed0da!2zVHJ1bmcgVMOibSBUaW4gSOG7jWMgLSDEkEggS2hvYSBI4buNYyBU4buxIE5พGnDqm4gVFAuSENN!5e0!3m2!1svi!2s!4v1710000000000!5m2!1svi!2s" 
+                width="100%" height="400" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </main>
+
+    <footer class="footer-bottom">
+        <p class="copyright">&copy; 2026 Billiards Pro Shop Của Anh Nhím. Thiết kế bởi Trần Gia Lạc ProVip.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cảm ơn bạn! Thông tin đã được gửi đi. Anh Nhím sẽ liên hệ lại sớm nhất.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

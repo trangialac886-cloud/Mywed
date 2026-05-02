@@ -1,13 +1,13 @@
-// KIỂM TRA QUYỀN TRUY CẬP (Thêm vào đầu file admin.js)
+
 (function() {
     const isAdmin = sessionStorage.getItem('isAdmin');
     if (isAdmin !== 'true') {
         alert("Bạn không có quyền truy cập trang này!");
-        window.location.href = 'index.html'; // Đẩy người dùng về trang chủ
+        window.location.href = 'index.html';
     }
 })();
 
-// ... Các code admin.js hiện tại của bạn (renderAdminTable, openModal, v.v.)
+
 let searchTerm = "";
 let sortOption = "none";
 let products = JSON.parse(localStorage.getItem("admin_products")) || [];
@@ -29,13 +29,13 @@ function renderAdminTable() {
     const tbody = document.getElementById("admin-product-list");
     if (!tbody) return;
 
-    // 1. Lọc dữ liệu theo tìm kiếm
+
     let filteredProducts = products.filter(p => 
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         p.id.toString().includes(searchTerm)
     );
 
-    // 2. Sắp xếp dữ liệu
+    
     if (sortOption === "price-asc") {
         filteredProducts.sort((a, b) => a.price - b.price);
     } else if (sortOption === "price-desc") {
@@ -46,7 +46,7 @@ function renderAdminTable() {
         filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    // 3. Hiển thị ra HTML
+    
     if (filteredProducts.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">Không tìm thấy sản phẩm phù hợp</td></tr>`;
         return;
@@ -68,7 +68,6 @@ function renderAdminTable() {
     `).join("");
 }
 
-// Xử lý Form (Thêm/Sửa)
 document.getElementById("productForm").onsubmit = function(e) {
     e.preventDefault();
     const id = document.getElementById("prodId").value;
@@ -83,11 +82,11 @@ document.getElementById("productForm").onsubmit = function(e) {
     };
 
     if (id) {
-        // Cập nhật
+       
         const index = products.findIndex(p => p.id == id);
         products[index] = newProduct;
     } else {
-        // Thêm mới
+     
         products.push(newProduct);
     }
 
@@ -96,7 +95,7 @@ document.getElementById("productForm").onsubmit = function(e) {
     renderAdminTable();
 };
 
-// Xóa sản phẩm
+
 function deleteProduct(id) {
     if (confirm("Bạn có chắc chắn muốn xóa?")) {
         products = products.filter(p => p.id != id);
@@ -105,7 +104,7 @@ function deleteProduct(id) {
     }
 }
 
-// Mở/Đóng Modal
+
 function openModal() {
     document.getElementById("productForm").reset();
     document.getElementById("prodId").value = "";
@@ -131,13 +130,12 @@ function closeModal() {
     document.getElementById("productModal").style.display = "none";
 }
 
-// Sự kiện tìm kiếm
+
 document.getElementById("admin-search")?.addEventListener("input", (e) => {
     searchTerm = e.target.value;
     renderAdminTable();
 });
 
-// Sự kiện sắp xếp
 document.getElementById("admin-sort")?.addEventListener("change", (e) => {
     sortOption = e.target.value;
     renderAdminTable();

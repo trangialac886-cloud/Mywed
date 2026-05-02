@@ -1,4 +1,4 @@
-// Hàm hiển thị giỏ hàng
+
 function renderCart() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const tbody = document.getElementById("cart-items");
@@ -17,7 +17,7 @@ function renderCart() {
         let subtotal = item.price * item.quantity;
         grandTotal += subtotal;
         
-       // Tìm dòng này trong cart.js và cập nhật template string
+      
 html += `
     <tr>
         <td>
@@ -44,19 +44,19 @@ html += `
     totalEl.innerText = grandTotal.toLocaleString();
 }
 
-// Cập nhật số lượng
+
 window.updateQuantity = function(index, change) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     cart[index].quantity += change;
 
-    // Nếu số lượng nhỏ hơn 1 thì giữ nguyên là 1
+
     if (cart[index].quantity < 1) cart[index].quantity = 1;
 
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
 };
 
-// Xóa sản phẩm
+
 window.removeItem = function(index) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng?")) {
@@ -66,32 +66,18 @@ window.removeItem = function(index) {
     }
 };
 
-// Thanh toán (Giả lập)
+
 window.checkout = function() {
     alert("Cảm ơn bạn đã mua hàng tại Nhím Billiards!");
-    localStorage.removeItem("cart"); // Xóa giỏ sau khi mua
+    localStorage.removeItem("cart"); 
     window.location.href = "index.html";
 };
 
-// Chạy hàm render khi trang web tải xong
+
 document.addEventListener("DOMContentLoaded", renderCart);
 
-// Hàm mở Modal thanh toán
-function openCheckout() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.length === 0) {
-        alert("Giỏ hàng của bạn đang trống!");
-        return;
-    }
-    document.getElementById("checkout-modal").style.display = "block";
-}
 
-// Hàm đóng Modal
-function closeCheckout() {
-    document.getElementById("checkout-modal").style.display = "none";
-}
 
-// Xử lý sự kiện gửi form
 const checkoutForm = document.getElementById("checkout-form");
 if (checkoutForm) {
     checkoutForm.addEventListener("submit", function(e) {
@@ -101,16 +87,22 @@ if (checkoutForm) {
         const phone = document.getElementById("customer-phone").value;
         const method = document.getElementById("payment-method").value;
 
-        alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận qua hình thức ${method.toUpperCase()}. Chúng tôi sẽ liên hệ qua số ${phone}.`);
+    
+        alert(`Cảm ơn ${name}! Đơn hàng của bạn đã được ghi nhận. Chúng tôi sẽ liên hệ qua số ${phone}.`);
         
-        // Xóa giỏ hàng sau khi đặt hàng thành công
+
         localStorage.removeItem("cart");
-        updateCartCount();
+
+       
+        if (typeof updateCartCount === "function") {
+            updateCartCount();
+        }
+
+     
         window.location.href = "index.html"; 
     });
 }
 
-/// 1. Hàm mở Modal
 function openCheckout() {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart.length === 0) {
@@ -120,14 +112,10 @@ function openCheckout() {
     document.getElementById("checkout-modal").style.display = "block";
 }
 
-// 2. Hàm đóng Modal
 function closeCheckout() {
     document.getElementById("checkout-modal").style.display = "none";
 }
 
-
-
-// 4. Đóng modal khi click ra ngoài vùng màu đen
 window.onclick = function(event) {
     const modal = document.getElementById("checkout-modal");
     if (event.target == modal) {
